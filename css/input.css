@@ -1,0 +1,26 @@
+.file{
+    --dark-blue:#1d4ed8;
+    --light-blue:#bfdbfe;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.file__input{
+    display: none;
+}
+
+.file__visible{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding:1em 4em;
+    color: var(--dark-blue);
+    font-weight: 600;
+    background-color: var(--light-blue);
+    border: 2px dotted var(--dark-blue);
+    border-radius: 8px;
+}
+
+#progressBarContainer{
+    display: none;
+}

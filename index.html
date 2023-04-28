@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/input.css">
+    <title>Image Upload</title>
+</head>
+
+<body>
+    <label class="file" for="fileInput1">
+        <input type="file" accept="image/*" name="file1" id="fileInput1" class="file__input">
+        <div class="file__visible">UPLOAD PHOTO</div>
+    </label>
+
+    <div id="progressBarContainer">
+        <progress id="progressBar" value="0" max="100"></progress>
+        <label for="progressBar">0%</label>
+    </div>
+
+    <div id="uploadSummary">
+
+    </div>
+
+    <script src="./script.js">
+        let FF_FOUC_FIX;
+    </script>
+</body>
+
+</html>
