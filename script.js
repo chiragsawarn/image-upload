@@ -3,6 +3,7 @@
 const fileInput = document.getElementById("fileInput1");
 const form = document.getElementById("form1");
 const progressBar = document.getElementById("progressBar");
+const progressValue = document.getElementById("progressValue");
 const progressBarContainer = document.getElementById("progressBarContainer");
 const uploadSummary = document.getElementById("uploadSummary");
 
@@ -10,6 +11,7 @@ fileInput.addEventListener("change", () => {
   const userImage = fileInput.files[0];
   const formData = new FormData();
   formData.append("user-image", userImage);
+  progressBar.setAttribute("value", 0);
   progressBarContainer.style.display = "block";
 
   const req = new XMLHttpRequest();
@@ -18,21 +20,29 @@ fileInput.addEventListener("change", () => {
   req.upload.addEventListener("progress", (e) => {
     const percentCompleted = Math.round((e.loaded * 100) / e.total);
     progressBar.setAttribute("value", percentCompleted);
-    progressBar.nextElementSibling.innerText = percentCompleted + " %";
+    progressValue.innerText = percentCompleted + " %";
   });
 
   // When the request completes
   req.addEventListener("load", () => {
-    progressBar.nextElementSibling.innerText = "0 %";
+    progressValue.innerText = "0 %";
     progressBarContainer.style.display = "none";
 
     const reader = new FileReader();
     const summaryItem = document.createElement("div");
     const img = document.createElement("img");
     const desc = document.createElement("div");
-    desc.innerHTML = `<div>${userImage.name}</div><p>${Math.round(
-      userImage.size / 1000
-    )} Kb</p>`;
+    const deletionText = document.createElement("p");
+    deletionText.addEventListener("click", () => {
+      summaryItem.remove();
+    });
+    summaryItem.setAttribute("class", "summaryItem");
+    deletionText.setAttribute("class", "deletionText");
+    deletionText.innerText = "DELETE";
+    desc.innerHTML = `<div class="imageName">${
+      userImage.name
+    }</div><p class="imageSize">${Math.round(userImage.size / 1000)} Kb</p>`;
+    desc.appendChild(deletionText);
     summaryItem.appendChild(img);
     summaryItem.appendChild(desc);
     uploadSummary.appendChild(summaryItem);

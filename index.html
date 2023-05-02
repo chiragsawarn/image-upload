@@ -9,15 +9,18 @@
     <title>Image Upload</title>
 </head>
 
-<body>
+<body class="body">
     <label class="file" for="fileInput1">
         <input type="file" accept="image/*" name="file1" id="fileInput1" class="file__input">
         <div class="file__visible">UPLOAD PHOTO</div>
     </label>
 
     <div id="progressBarContainer">
+        <div id="progressBarHeader">
+            <p id="progressTitle">Uploading...</p>
+            <div id="progressValue">0%</div>
+        </div>
         <progress id="progressBar" value="0" max="100"></progress>
-        <label for="progressBar">0%</label>
     </div>
 
     <div id="uploadSummary">

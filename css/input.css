@@ -1,19 +1,25 @@
-.file{
-    --dark-blue:#1d4ed8;
-    --light-blue:#bfdbfe;
-    margin-right: 20px;
-    cursor: pointer;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --width: 400px;
 }
 
-.file__input{
+.file {
+    --dark-blue: #1E3A8A;
+    --light-blue: #EFF6FF;
+    cursor: pointer;
+    width: var(--width);
+    margin-top: 5px;
+}
+
+.file__input {
     display: none;
 }
 
-.file__visible{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding:1em 4em;
+.file__visible {
+    text-align: center;
+    padding: 1em 4em;
     color: var(--dark-blue);
     font-weight: 600;
     background-color: var(--light-blue);
@@ -21,6 +27,61 @@
     border-radius: 8px;
 }
 
-#progressBarContainer{
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.summaryItem {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    width: var(--width);
+    border: 1px solid #1E3A8A;
+    border-radius: 16px;
+}
+
+.summaryItem>img {
+    border-radius: 16px;
+}
+
+.summaryItem>div {
+    margin-left: 20px;
+}
+
+.summaryItem>div>.imageName {
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
+.summaryItem>div>.imageSize {
+    color: gray;
+}
+
+.summaryItem>div>.deletionText {
+    color: gray;
+    margin-top: 70%;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#progressBarContainer {
     display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#progressBarHeader {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+#progressBar {
+    margin-top: 5px;
+    width: var(--width);
+    accent-color: #1E3A8A;
 }
