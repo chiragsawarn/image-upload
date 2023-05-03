@@ -62,7 +62,7 @@
 
 .summaryItem>div>.deletionText {
     color: gray;
-    margin-top: 70%;
+    margin-top: 50px;
     cursor: pointer;
     font-size: 0.9rem;
 }
